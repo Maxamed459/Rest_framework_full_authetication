@@ -3,7 +3,6 @@ from django.core.mail import EmailMessage
 from .models import User, OneTimePassword
 from django.conf import settings
 
-
 def create_otp():
     otp=""
     for i in range(6):
