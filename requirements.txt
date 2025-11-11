@@ -1,0 +1,10 @@
+Django==5.2.8
+asgiref>=3.8.1
+django-cors-headers==3.13.0
+django-environ
+djangorestframework
+djangorestframework-simplejwt
+pyjwt
+pytz
+sqlparser
+tzdata
