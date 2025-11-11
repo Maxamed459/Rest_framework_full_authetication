@@ -1,24 +1,27 @@
-import environ
 from pathlib import Path
 from datetime import timedelta
+from config import (
+    BASE_DIR,
+    DEBUG,
+    SECRET_KEY,
+    SIGNING_KEY,
+    EMAIL_HOST_USER,
+    EMAIL_HOST_PASSWORD,
+    DEFAULT_FROM_EMAIL
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env(
-    DEBUG=(bool, False)
-)
-
-environ.Env.read_env(BASE_DIR / ".env")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DEBUG")
+DEBUG = DEBUG
 
 ALLOWED_HOSTS = []
 
@@ -90,7 +93,7 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=10),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "AUTH_HEADER_TYPES": ("Bearer",),
-    "SIGNING_KEY": env("SIGNING_KEY"),
+    "SIGNING_KEY": SIGNING_KEY,
 }
 
 # Password validation
@@ -136,8 +139,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Looking to send emails in production? Check out our Email API/SMTP product!
 EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-DEFAULT_FROM_EMAIL = 'maxamedmahdi459@gmail.com'
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = DEFAULT_FROM_EMAIL
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
 EMAIL_PORT = '2525'
 EMAIL_USE_TLS = True
